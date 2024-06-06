@@ -4,18 +4,28 @@ import java.util.Scanner;
 public class Main {
     // Função que cria informações do Usuário
     private static String checaCPF() {
-        String cpfNaoValidos[] = {"00000000000", "11111111111", "22222222222", "33333333333", "44444444444", "55555555555",
-                "66666666666", "77777777777", "88888888888", "99999999999"};
+        //variaveis e classes
         Scanner sc = new Scanner(System.in);
-        System.out.println("Coloque seu CPF (Apenas Números) :");
-        String  cpfCliente = sc.next();
-        for (int i = 0 ; i < cpfNaoValidos.length; i++){
+        String cpfCliente;
+        while (true) {
             int contadorError = 0;
-            if(Objects.equals(cpfCliente, cpfNaoValidos[i])){
-                contadorError++;
+            //Referencia de CPF´s invalidos
+            String cpfNaoValidos[] = {"00000000000", "11111111111", "22222222222", "33333333333", "44444444444", "55555555555",
+                    "66666666666", "77777777777", "88888888888", "99999999999"};
+            //digita cpf
+            System.out.println("Coloque seu CPF (Apenas Números) :");
+            cpfCliente = sc.next();
+
+            //valida cpf
+            for (int i = 0; i < cpfNaoValidos.length; i++) {
+                if (Objects.equals(cpfCliente, cpfNaoValidos[i])) {
+                    contadorError++;
+                }
             }
-
-
+            if (contadorError == 0) {
+                break;
+            }
+            System.out.println("CPF invalido, por favor digite novamente!");
         }
         return cpfCliente;
     }
