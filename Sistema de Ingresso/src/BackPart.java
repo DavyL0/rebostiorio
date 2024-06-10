@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -190,86 +189,76 @@ public class BackPart {
     }
 
     static void estatisticaLucroMedio(String[][] pecaUm, String[][] pecaDos, String[][] pecaTres){
-        //variaveis de totais
+        // Variáveis de totais
         int somaPecaUm = 0;
         int somaPecaDos = 0;
         int somaPecaTres = 0;
 
-        for (String[] strings : pecaUm) {
-            switch (strings[2]){
-                case "PA"-> {
-                    assert strings[3] != null;
-                    somaPecaUm += 40* Integer.parseInt(strings[3]);
+        for (String[] pecaU : pecaUm) {
+            if (pecaU[2] != null) {
+                switch (pecaU[2]) {
+                    case "PA" -> {
+                        if (pecaU[3] != null) somaPecaUm += 40 * Integer.parseInt(pecaU[3]);
+                    }
+                    case "PB" -> {
+                        if (pecaU[3] != null) somaPecaUm += 60 * Integer.parseInt(pecaU[3]);
+                    }
+                    case "CA" -> {
+                        if (pecaU[3] != null) somaPecaUm += 80 * Integer.parseInt(pecaU[3]);
+                    }
+                    case "FA" -> {
+                        if (pecaU[3] != null) somaPecaUm += 120 * Integer.parseInt(pecaU[3]);
+                    }
+                    case "BN" -> {
+                        if (pecaU[3] != null) somaPecaUm += 250 * Integer.parseInt(pecaU[3]);
+                    }
                 }
-                case "PB"-> {
-                    assert strings[3] != null;
-                    somaPecaUm +=60* Integer.parseInt(strings[3]);
-                }
-                case "CA"-> {
-                    assert strings[3] != null;
-                    somaPecaUm += 80* Integer.parseInt(strings[3]);
-                }
-                case "FA"-> {
-                    assert strings[3] != null;
-                    somaPecaUm +=120* Integer.parseInt(strings[3]);
-                }
-                case "BN"-> {
-                    assert strings[3] != null;
-                    somaPecaUm +=250* Integer.parseInt(strings[3]);
-                }
-
             }
         }
-        for (String[] strings : pecaDos) {
-            switch (strings[2]){
-                case "PA"-> {
-                    assert strings[3] != null;
-                    somaPecaDos += 40* Integer.parseInt(strings[3]);
-                }
-                case "PB"-> {
-                    assert strings[3] != null;
-                    somaPecaDos +=60* Integer.parseInt(strings[3]);
-                }
-                case "CA"-> {
-                    assert strings[3] != null;
-                    somaPecaDos += 80* Integer.parseInt(strings[3]);
-                }
-                case "FA"-> {
-                    assert strings[3] != null;
-                    somaPecaDos +=120* Integer.parseInt(strings[3]);
-                }
-                case "BN"-> {
-                    assert strings[3] != null;
-                    somaPecaDos +=250* Integer.parseInt(strings[3]);
-                }
 
+        for (String[] pecaDo : pecaDos) {
+            if (pecaDo[2] != null) {
+                switch (pecaDo[2]) {
+                    case "PA" -> {
+                        if (pecaDo[3] != null) somaPecaDos += 40 * Integer.parseInt(pecaDo[3]);
+                    }
+                    case "PB" -> {
+                        if (pecaDo[3] != null) somaPecaDos += 60 * Integer.parseInt(pecaDo[3]);
+                    }
+                    case "CA" -> {
+                        if (pecaDo[3] != null) somaPecaDos += 80 * Integer.parseInt(pecaDo[3]);
+                    }
+                    case "FA" -> {
+                        if (pecaDo[3] != null) somaPecaDos += 120 * Integer.parseInt(pecaDo[3]);
+                    }
+                    case "BN" -> {
+                        if (pecaDo[3] != null) somaPecaDos += 250 * Integer.parseInt(pecaDo[3]);
+                    }
+                }
             }
         }
-        for (String[] strings : pecaTres) {
-            switch (strings[2]){
-                case "PA"-> {
-                    assert strings[3] != null;
-                    somaPecaTres += 40* Integer.parseInt(strings[3]);
-                }
-                case "PB"-> {
-                    assert strings[3] != null;
-                    somaPecaTres +=60* Integer.parseInt(strings[3]);
-                }
-                case "CA"-> {
-                    assert strings[3] != null;
-                    somaPecaTres += 80* Integer.parseInt(strings[3]);
-                }
-                case "FA"-> {
-                    assert strings[3] != null;
-                    somaPecaTres +=120* Integer.parseInt(strings[3]);
-                }
-                case "BN"-> {
-                    assert strings[3] != null;
-                    somaPecaTres +=250* Integer.parseInt(strings[3]);
-                }
 
+            for (String[] pecaTre : pecaTres) {
+                if (pecaTre[2] != null) {
+                    switch (pecaTre[2]) {
+                        case "PA" -> {
+                            if (pecaTre[3] != null) somaPecaTres += 40 * Integer.parseInt(pecaTre[3]);
+                        }
+                        case "PB" -> {
+                            if (pecaTre[3] != null) somaPecaTres += 60 * Integer.parseInt(pecaTre[3]);
+                        }
+                        case "CA" -> {
+                            if (pecaTre[3] != null) somaPecaTres += 80 * Integer.parseInt(pecaTre[3]);
+                        }
+                        case "FA" -> {
+                            if (pecaTre[3] != null) somaPecaTres += 120 * Integer.parseInt(pecaTre[3]);
+                        }
+                        case "BN" -> {
+                            if (pecaTre[3] != null) somaPecaTres += 250 * Integer.parseInt(pecaTre[3]);
+                        }
+                    }
+                }
             }
-        }
         System.out.println("O lucro médio da peça um foi R$ " + somaPecaUm);
         System.out.println("O lucro médio da peça dois foi R$ " + somaPecaDos);
         System.out.println("O lucro médio da peça três foi R$ "+ somaPecaTres);
@@ -306,25 +295,49 @@ public class BackPart {
         int somaTarde = 0;
         int somaNoite = 0;
 
-        for (String[] strings : pecaUm) {
-            switch (strings[1]){
-                case "M"-> somaManha ++;
-                case "T"-> somaTarde ++;
-                case "N"-> somaNoite ++;
+        for (String[] pecaU : pecaUm) {
+            if (pecaU[1] != null) {
+                switch (pecaU[1]){
+                    case "M"-> {
+                        if (pecaU[3] != null) somaManha ++;
+                    }
+                    case "T"-> {
+                        if (pecaU[3] != null)somaTarde ++;
+                    }
+                    case "N"-> {
+                        if (pecaU[3] != null)somaNoite ++;
+                    }
+                }
             }
         }
-        for (String[] strings : pecaDos) {
-            switch (strings[1]){
-                case "M"-> somaManha ++;
-                case "T"-> somaTarde ++;
-                case "N"-> somaNoite ++;
+        for (String[] pecaDo : pecaDos) {
+            if (pecaDo[1] != null) {
+                switch (pecaDo[1]){
+                    case "M"-> {
+                        if (pecaDo[3] != null) somaManha ++;
+                    }
+                    case "T"-> {
+                        if (pecaDo[3] != null)somaTarde ++;
+                    }
+                    case "N"-> {
+                        if (pecaDo[3] != null)somaNoite ++;
+                    }
+                }
             }
         }
-        for (String[] strings : pecaTres) {
-            switch (strings[1]){
-                case "M"-> somaManha ++;
-                case "T"-> somaTarde ++;
-                case "N"-> somaNoite ++;
+        for (String[] pecaTre : pecaTres) {
+            if (pecaTre[1] != null) {
+                switch (pecaTre[1]){
+                    case "M"-> {
+                        if (pecaTre[3] != null) somaManha ++;
+                    }
+                    case "T"-> {
+                        if (pecaTre[3] != null)somaTarde ++;
+                    }
+                    case "N"-> {
+                        if (pecaTre[3] != null)somaNoite ++;
+                    }
+                }
             }
         }
         //verifica sessão mais vista
@@ -374,108 +387,133 @@ public class BackPart {
             int manha = 0;
             int tarde = 0;
             int noite = 0;
-            switch (strings[1]){
-                case "M"->{
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            manha += 40* Integer.parseInt(strings[3]);
+
+            if (strings[1] != null) {
+                switch (strings[1]){
+                    case "M"->{
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        manha += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        manha += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        manha += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        manha += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                    manha +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            manha +=60* Integer.parseInt(strings[3]);
+
+                    }
+                    case "T"-> {
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        tarde += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                        tarde +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            manha += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            manha +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            manha +=250* Integer.parseInt(strings[3]);
+                    }
+                    case "N"->{
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        noite += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        noite += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        noite += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        noite += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                        noite +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-                case "T"-> {
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            tarde += 40* Integer.parseInt(strings[3]);
-                        }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            tarde +=60* Integer.parseInt(strings[3]);
-                        }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            tarde += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            tarde +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            tarde +=250* Integer.parseInt(strings[3]);
-                        }
+                //verifica os horarios mais e menos lucrativos da peça
+                if(noite > tarde){
+                    if (noite > manha){
+                        lucroPecaUm = noite;
+                        horaPecaUm = "noite";
+                        defPecaUm = manha;
+                        horaDefPecaUm = "manhã";
+                    }else{
+                        lucroPecaUm = manha;
+                        horaPecaUm = "manhã";
+                        defPecaUm = tarde;
+                        horaDefPecaUm = "tarde";
                     }
-                }
-                case "N"->{
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            noite += 40* Integer.parseInt(strings[3]);
-                        }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            noite +=60* Integer.parseInt(strings[3]);
-                        }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            tarde += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            noite +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            noite +=250* Integer.parseInt(strings[3]);
-                        }
-                    }
-                }
-            }
-            //verifica os horarios mais e menos lucrativos da peça
-            if(noite > tarde){
-                if (noite > manha){
-                    lucroPecaUm = noite;
-                    horaPecaUm = "noite";
+                }else if (tarde > manha) {
+                    lucroPecaUm = tarde;
+                    horaPecaUm = "tarde";
+
                     defPecaUm = manha;
                     horaDefPecaUm = "manhã";
                 }else{
                     lucroPecaUm = manha;
                     horaPecaUm = "manhã";
-                    defPecaUm = tarde;
-                    horaDefPecaUm = "tarde";
-                }
-            }else if (tarde > manha) {
-                lucroPecaUm = tarde;
-                horaPecaUm = "tarde";
-
-                defPecaUm = manha;
-                horaDefPecaUm = "manhã";
-            }else{
-                lucroPecaUm = manha;
-                horaPecaUm = "manhã";
-                if(tarde > noite){
-                    defPecaUm = noite;
-                    horaDefPecaUm = "noite";
-                }else{
-                    defPecaUm = tarde;
-                    horaDefPecaUm = "tarde";
+                    if(tarde > noite){
+                        defPecaUm = noite;
+                        horaDefPecaUm = "noite";
+                    }else{
+                        defPecaUm = tarde;
+                        horaDefPecaUm = "tarde";
+                    }
                 }
             }
         }
@@ -483,76 +521,100 @@ public class BackPart {
             int manha = 0;
             int tarde = 0;
             int noite = 0;
-            switch (strings[1]){
-                case "M"->{
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            manha += 40* Integer.parseInt(strings[3]);
+            if (strings[1] != null) {
+                switch (strings[1]){
+                    case "M"->{
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        manha += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        manha += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        manha += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        manha += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                        manha +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            manha +=60* Integer.parseInt(strings[3]);
-                        }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            manha += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            manha +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            manha +=250* Integer.parseInt(strings[3]);
+
+                    }
+                    case "T"-> {
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        tarde += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                        tarde +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
                     }
-                }
-                case "T"-> {
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            tarde += 40* Integer.parseInt(strings[3]);
-                        }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            tarde +=60* Integer.parseInt(strings[3]);
-                        }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            tarde += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            tarde +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            tarde +=250* Integer.parseInt(strings[3]);
-                        }
-                    }
-                }
-                case "N"->{
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            noite += 40* Integer.parseInt(strings[3]);
-                        }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            noite +=60* Integer.parseInt(strings[3]);
-                        }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            tarde += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            noite +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            noite +=250* Integer.parseInt(strings[3]);
+                    case "N"->{
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        noite += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        noite += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        noite += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        noite += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                        noite +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -592,76 +654,100 @@ public class BackPart {
             int manha = 0;
             int tarde = 0;
             int noite = 0;
-            switch (strings[1]){
-                case "M"->{
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            manha += 40* Integer.parseInt(strings[3]);
+            if (strings[1] != null) {
+                switch (strings[1]){
+                    case "M"->{
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        manha += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        manha += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        manha += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        manha += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                        manha +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            manha +=60* Integer.parseInt(strings[3]);
-                        }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            manha += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            manha +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            manha +=250* Integer.parseInt(strings[3]);
+
+                    }
+                    case "T"-> {
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        tarde += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        tarde += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                        tarde +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
                     }
-                }
-                case "T"-> {
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            tarde += 40* Integer.parseInt(strings[3]);
-                        }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            tarde +=60* Integer.parseInt(strings[3]);
-                        }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            tarde += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            tarde +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            tarde +=250* Integer.parseInt(strings[3]);
-                        }
-                    }
-                }
-                case "N"->{
-                    switch (strings[2]){
-                        case "PA"-> {
-                            assert strings[3] != null;
-                            noite += 40* Integer.parseInt(strings[3]);
-                        }
-                        case "PB"-> {
-                            assert strings[3] != null;
-                            noite +=60* Integer.parseInt(strings[3]);
-                        }
-                        case "CA"-> {
-                            assert strings[3] != null;
-                            tarde += 80* Integer.parseInt(strings[3]);
-                        }
-                        case "FA"-> {
-                            assert strings[3] != null;
-                            noite +=120* Integer.parseInt(strings[3]);
-                        }
-                        case "BN"-> {
-                            assert strings[3] != null;
-                            noite +=250* Integer.parseInt(strings[3]);
+                    case "N"->{
+                        if (strings[2] != null) {
+                            switch (strings[2]){
+                                case "PA"-> {
+                                    if (strings[3] != null){
+                                        noite += 40* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "PB"-> {
+                                    if (strings[3] != null) {
+                                        noite += 60 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "CA"-> {
+                                    if (strings[3] != null) {
+                                        noite += 80 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "FA"-> {
+                                    if (strings[3] != null) {
+                                        noite += 120 * Integer.parseInt(strings[3]);
+                                    }
+                                }
+                                case "BN"-> {
+                                    if (strings[3] != null) {
+                                        noite +=250* Integer.parseInt(strings[3]);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
