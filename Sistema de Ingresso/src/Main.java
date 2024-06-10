@@ -8,8 +8,8 @@ public class Main {
         System.out.println("******* Teatro Guará ********");
         System.out.println("*****************************");
         System.out.println(" ");
-
-        while (true){
+        boolean connect = true;
+        while (connect){
             System.out.println("Escolha uma opção:");
             System.out.println("1 - Comprar Ingresso");
             System.out.println("2 - Checar estastisticas ");
@@ -32,7 +32,7 @@ public class Main {
 
                     case 3 -> {
                         System.out.println("Teatro Guará agradece a preferencia");
-                        break;
+                        connect = false;
                     }
 
                 }
