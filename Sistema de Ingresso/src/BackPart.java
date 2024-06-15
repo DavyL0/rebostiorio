@@ -11,8 +11,10 @@ public class BackPart {
     static String[][] pecaUm = new String[100][4]; // Presumindo tamanho 100 para exemplo
     static String[][] pecaDos = new String[100][4]; // Presumindo tamanho 100 para exemplo
     static String[][] pecaTres = new String[100][4]; // Presumindo tamanho 100 para exemplo
-     //static int[][] pecaLugares = int[][]{25,10,};
-
+    //cada linha dessa matriz é a quantidade de lugares de cada horario
+    static int[][] pecaLugaresUm = {{25,100,30,50,50},{25,100,30,50,50},{25,100,30,50,50}};
+    static int[][] pecaLugaresDos = {{25,100,30,50,50},{25,100,30,50,50},{25,100,30,50,50}};
+    static int[][] pecaLugaresTres = {{25,100,30,50,50},{25,100,30,50,50},{25,100,30,50,50}};
     public BackPart(String cpfCliente, int pecaEscolhida, String horarioEscolhido, String poltronaEscolhida, int quantLugar) {
         this.cpfClient = cpfCliente;
         this.pecaEscol = pecaEscolhida;
@@ -96,6 +98,52 @@ public class BackPart {
                 }
             }
             System.out.println("Entrada inválida! Por favor, tente novamente.");
+        }
+    }
+
+    public static boolean limiteLugares(int pecaEscolhida, String horarioEscolhido, String poltronaEscolhida, int quantLugar) {
+        int[][] pecaLugares;
+
+        switch (pecaEscolhida) {
+            case 1 -> pecaLugares = pecaLugaresUm;
+            case 2 -> pecaLugares = pecaLugaresDos;
+            case 3 -> pecaLugares = pecaLugaresTres;
+            default -> {
+                System.out.println("Peça inválida.");
+                return false;
+            }
+        }
+
+        int horarioIndex;
+        switch (horarioEscolhido) {
+            case "M" -> horarioIndex = 0;
+            case "T" -> horarioIndex = 1;
+            case "N" -> horarioIndex = 2;
+            default -> {
+                System.out.println("Horário inválido.");
+                return false;
+            }
+        }
+
+        int poltronaIndex;
+        switch (poltronaEscolhida) {
+            case "PA" -> poltronaIndex = 0;
+            case "PB" -> poltronaIndex = 1;
+            case "FA" -> poltronaIndex = 2;
+            case "CA" -> poltronaIndex = 3;
+            case "BN" -> poltronaIndex = 4;
+            default -> {
+                System.out.println("Poltrona inválida.");
+                return false;
+            }
+        }
+
+        if (pecaLugares[poltronaIndex][horarioIndex] >= quantLugar) {
+            pecaLugares[poltronaIndex][horarioIndex] -= quantLugar;
+            return true;
+        } else {
+            System.out.println("Não há lugares disponíveis suficientes.");
+            return false;
         }
     }
 
