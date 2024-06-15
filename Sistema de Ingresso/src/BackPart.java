@@ -11,6 +11,7 @@ public class BackPart {
     static String[][] pecaUm = new String[100][4]; // Presumindo tamanho 100 para exemplo
     static String[][] pecaDos = new String[100][4]; // Presumindo tamanho 100 para exemplo
     static String[][] pecaTres = new String[100][4]; // Presumindo tamanho 100 para exemplo
+     //static int[][] pecaLugares = int[][]{25,10,};
 
     public BackPart(String cpfCliente, int pecaEscolhida, String horarioEscolhido, String poltronaEscolhida, int quantLugar) {
         this.cpfClient = cpfCliente;
